@@ -2,20 +2,14 @@ package cz.muni.fi.test;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.List;
 
 
 
@@ -31,11 +25,10 @@ public class TestActivity extends Activity {
         buttonRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                PackageManager pm = getPackageManager();
-//                Intent intent = pm.getLaunchIntentForPackage("com.the.other.app");
                 Intent intent = new Intent();
                 intent.setAction("cz.muni.fi.digitrecognition.GAUGE_RECOGNITION");
                 intent.setClassName("cz.muni.fi.digitrecognition","cz.muni.fi.digitrecognition.CaptureActivity");
+
 
                 if(intent.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(intent, 0);
